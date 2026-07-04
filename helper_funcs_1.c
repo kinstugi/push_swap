@@ -83,9 +83,12 @@ char	*ft_itoa(int n)
 	return (buffer);
 }
 
-void	init_app_input(t_input *store)
+int	ft_strlen(char *str)
 {
-	store->bench_mode = 0;
-	store->selected_mode = 0;
-	store->num_cnt = 0;
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

@@ -40,17 +40,32 @@ int	process_user_input(t_input *store, int ac, char **av)
 	return (1);
 }
 
+void	init_variables(t_input *store, t_dll *stack_a, t_dll *stack_b)
+{
+	store->selected_mode = 0;
+	store->bench_mode = 0;
+	store->num_cnt = 0;
+	stack_a->len = 0;
+	stack_a->next = NULL;
+	stack_a->prev = NULL;
+	stack_b->len = 0;
+	stack_b->next = NULL;
+	stack_b->prev = NULL;
+}
+
 int	main(int ac, char **av)
 {
 	t_input	user_input;
+	t_dll	stack_a;
+	t_dll	stack_b;
 
-	init_app_input(&user_input);
+	init_variables(&user_input, &stack_a, &stack_b);
 	if (!process_user_input(&user_input, ac, av)
 		|| has_duplicates(user_input.arr, user_input.num_cnt))
 	{
-        printf("Error\n");
-        return (1);
-    }
-    set_ranks(&user_input);
+		ft_putstr("Error\n");
+		return (1);
+	}
+	set_ranks(&user_input);
 	return (0);
 }

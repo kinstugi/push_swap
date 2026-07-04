@@ -87,3 +87,11 @@ void	set_ranks(t_input *store)
 	while (++i < store->num_cnt)
 		store->arr[i] = tmp_arr_2[i];
 }
+
+int	ft_putstr(char *str)
+{
+	int	len;
+
+	len = ft_strlen(str);
+	return (write(1, str, len));
+}

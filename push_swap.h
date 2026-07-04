@@ -13,20 +13,30 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_user_input
 {
-	int	selected_mode;
-	int	bench_mode;
-	int	arr[600];
-	int	num_cnt;
-}		t_input;
+	int					selected_mode;
+	int					bench_mode;
+	int					arr[600];
+	int					num_cnt;
+}						t_input;
 
-int		ft_strcmp(const char *s1, const char *s2);
-int		ft_atoi(const char *str);
-char	*ft_itoa(int n);
-void	init_app_input(t_input *store);
-int		has_duplicates(int *arr, int cnt);
-void	set_ranks(t_input *store);
+typedef struct s_dl_list
+{
+	int					val;
+	struct s_dl_list	*next;
+	struct s_dl_list	*prev;
+	size_t				len;
+}						t_dll;
+
+int						ft_strcmp(const char *s1, const char *s2);
+int						ft_atoi(const char *str);
+char					*ft_itoa(int n);
+int						has_duplicates(int *arr, int cnt);
+void					set_ranks(t_input *store);
+int						ft_putstr(char *str);
+int						ft_strlen(char *str);
 #endif
