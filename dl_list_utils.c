@@ -12,16 +12,23 @@
 
 #include "push_swap.h"
 
-int	lst_add_front(t_dll *lst, int val)
+t_node	*create_node(int val)
 {
 	t_node	*new_node;
 
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
-		return (lst->len);
+		return (0);
 	new_node->val = val;
 	new_node->next = NULL;
 	new_node->prev = NULL;
+	return (new_node);
+}
+
+int	lst_add_front(t_dll *lst, t_node *new_node)
+{
+	if (!lst || !new_node)
+		return (0);
 	if (lst->len)
 	{
 		new_node->next = lst->head;

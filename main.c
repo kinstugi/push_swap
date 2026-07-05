@@ -46,11 +46,11 @@ void	init_variables(t_input *store, t_dll *stack_a, t_dll *stack_b)
 	store->bench_mode = 0;
 	store->num_cnt = 0;
 	stack_a->len = 0;
-	stack_a->next = NULL;
-	stack_a->prev = NULL;
+	stack_a->head = NULL;
+	stack_a->tail = NULL;
 	stack_b->len = 0;
-	stack_b->next = NULL;
-	stack_b->prev = NULL;
+	stack_b->head = NULL;
+	stack_b->tail = NULL;
 }
 
 int	main(int ac, char **av)
