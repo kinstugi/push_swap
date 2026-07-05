@@ -45,12 +45,22 @@ void	init_variables(t_input *store, t_dll *stack_a, t_dll *stack_b)
 	store->selected_mode = 0;
 	store->bench_mode = 0;
 	store->num_cnt = 0;
+	store->disordedness = 0.0;
 	stack_a->len = 0;
 	stack_a->head = NULL;
 	stack_a->tail = NULL;
 	stack_b->len = 0;
 	stack_b->head = NULL;
 	stack_b->tail = NULL;
+}
+
+void	run_push_swap(t_input *store, t_dll *stk_a, t_dll *stk_b)
+{
+	populate_stack(store, stk_a);
+	if (stk_a->len < 6)
+	
+	lst_clear(stk_a);
+	lst_clear(stk_b);
 }
 
 int	main(int ac, char **av)
@@ -66,8 +76,9 @@ int	main(int ac, char **av)
 		ft_putstr("Error\n");
 		return (1);
 	}
+	user_input.disordedness = compute_disorder(user_input.arr,
+			user_input.num_cnt);
 	set_ranks(&user_input);
-	populate_stack(&user_input, &stack_a);
-	lst_clear(&stack_a);
+	run_push_swap(&user_input, &stack_a, &stack_b);
 	return (0);
 }

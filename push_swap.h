@@ -22,6 +22,7 @@ typedef struct s_user_input
 	int				bench_mode;
 	int				arr[600];
 	int				num_cnt;
+	double			disordedness;
 }					t_input;
 
 typedef struct s_node
@@ -42,6 +43,7 @@ int					ft_strcmp(const char *s1, const char *s2);
 int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
 int					has_duplicates(int *arr, int cnt);
+double				compute_disorder(int *arr, int cnt);
 void				set_ranks(t_input *store);
 int					ft_putstr(char *str);
 int					ft_strlen(char *str);

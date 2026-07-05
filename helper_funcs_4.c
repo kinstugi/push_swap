@@ -30,3 +30,31 @@ void	populate_stack(t_input *store, t_dll *lst)
 		i--;
 	}
 }
+
+double	compute_disorder(int *arr, int cnt)
+{
+	int		i;
+	int		j;
+	int		mistake;
+	double	ret;
+
+	mistake = 0;
+	ret = 0;
+	i = 0;
+	if (cnt < 2)
+		return (0);
+	while (i < cnt)
+	{
+		j = i + 1;
+		while (j < cnt)
+		{
+			if (arr[i] > arr[j])
+				mistake++;
+			j++;
+		}
+		i++;
+	}
+	ret = (double)(cnt - 1) * cnt / 2;
+	ret = mistake / (ret);
+	return (ret);
+}
