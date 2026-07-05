@@ -1,7 +1,7 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = main.c helper_funcs_1.c helper_funcs_2.c helper_funcs_3.c \
-		dl_list_utils.c
+		dl_list_utils.c helper_funcs_4.c
 OBJS = ${SRCS:.c=.o}
 NAME = push_swap
 

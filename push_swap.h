@@ -49,8 +49,10 @@ int					lst_add_front(t_dll *lst, t_node *new_node);
 t_node				*lst_pop_front(t_dll *lst);
 void				lst_rotate(t_dll *lst, int dxn);
 t_node				*create_node(int val);
+void				lst_clear(t_dll *lst);
 void				px(t_dll *from, t_dll *to);
 void				rx(t_dll *stk);
 void				rrx(t_dll *stk);
 void				sx(t_dll *stk);
+void				populate_stack(t_input *store, t_dll *lst);
 #endif

@@ -67,5 +67,7 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	set_ranks(&user_input);
+	populate_stack(&user_input, &stack_a);
+	lst_clear(&stack_a);
 	return (0);
 }

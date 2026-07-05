@@ -79,3 +79,16 @@ void	lst_rotate(t_dll *lst, int dxn)
 		lst->head = lst->head->prev;
 	lst->tail = lst->head->prev;
 }
+
+void	lst_clear(t_dll *lst)
+{
+	t_node	*tmp;
+
+	if (!lst)
+		return ;
+	while (lst->len)
+	{
+		tmp = lst_pop_front(lst);
+		free(tmp);
+	}
+}
