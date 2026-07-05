@@ -18,25 +18,34 @@
 
 typedef struct s_user_input
 {
-	int					selected_mode;
-	int					bench_mode;
-	int					arr[600];
-	int					num_cnt;
-}						t_input;
+	int				selected_mode;
+	int				bench_mode;
+	int				arr[600];
+	int				num_cnt;
+}					t_input;
+
+typedef struct s_node
+{
+	int				val;
+	struct s_node	*prev;
+	struct s_node	*next;
+}					t_node;
 
 typedef struct s_dl_list
 {
-	int					val;
-	struct s_dl_list	*next;
-	struct s_dl_list	*prev;
-	size_t				len;
-}						t_dll;
+	int				len;
+	t_node			*head;
+	t_node			*tail;
+}					t_dll;
 
-int						ft_strcmp(const char *s1, const char *s2);
-int						ft_atoi(const char *str);
-char					*ft_itoa(int n);
-int						has_duplicates(int *arr, int cnt);
-void					set_ranks(t_input *store);
-int						ft_putstr(char *str);
-int						ft_strlen(char *str);
+int					ft_strcmp(const char *s1, const char *s2);
+int					ft_atoi(const char *str);
+char				*ft_itoa(int n);
+int					has_duplicates(int *arr, int cnt);
+void				set_ranks(t_input *store);
+int					ft_putstr(char *str);
+int					ft_strlen(char *str);
+int					lst_add_front(t_dll *lst, int val);
+t_node				*lst_pop_front(t_dll *lst);
+void				lst_rotate(t_dll *lst, int dxn);
 #endif
