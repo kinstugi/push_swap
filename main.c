@@ -42,9 +42,15 @@ int	process_user_input(t_input *store, int ac, char **av)
 
 void	init_variables(t_input *store, t_dll *stack_a, t_dll *stack_b)
 {
+	int	i;
+
+	i = -1;
+	while (++i < 11)
+		store->ops[i] = 0;
 	store->selected_mode = 0;
 	store->bench_mode = 0;
 	store->num_cnt = 0;
+	store->algo_used = 0;
 	store->disordedness = 0.0;
 	stack_a->len = 0;
 	stack_a->head = NULL;
@@ -58,8 +64,7 @@ void	run_push_swap(t_input *store, t_dll *stk_a, t_dll *stk_b)
 {
 	populate_stack(store, stk_a);
 	if (stk_a->len < 6)
-	
-	lst_clear(stk_a);
+		lst_clear(stk_a);
 	lst_clear(stk_b);
 }
 

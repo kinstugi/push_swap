@@ -23,6 +23,8 @@ typedef struct s_user_input
 	int				arr[600];
 	int				num_cnt;
 	double			disordedness;
+	int				algo_used;
+	int				ops[11];
 }					t_input;
 
 typedef struct s_node
