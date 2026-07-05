@@ -9,3 +9,14 @@
 /*   Updated: 2026/07/05 16:57:02 by kwaku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
+
+void	sorting_turkish_sort(t_input *store, t_dll *stk_a, t_dll *stk_b,
+		int disp_op)
+{
+	(void)store;
+	(void)stk_b;
+	(void)stk_a;
+	(void)disp_op;
+}

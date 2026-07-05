@@ -63,6 +63,7 @@ void	init_variables(t_input *store, t_dll *stack_a, t_dll *stack_b)
 void	run_push_swap(t_input *store, t_dll *stk_a, t_dll *stk_b)
 {
 	populate_stack(store, stk_a);
+	sorting_radix_sort(store, stk_a, stk_b, 1);
 	lst_clear(stk_a);
 	lst_clear(stk_b);
 }

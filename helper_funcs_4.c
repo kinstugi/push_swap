@@ -54,7 +54,7 @@ double	compute_disorder(int *arr, int cnt)
 		}
 		i++;
 	}
-	ret = (double)(cnt - 1) * cnt / 2;
+	ret = ((cnt - 1) * cnt) / 2;
 	ret = mistake / (ret);
 	return (ret);
 }

@@ -59,4 +59,6 @@ void				rx(t_dll *stk);
 void				rrx(t_dll *stk);
 void				sx(t_dll *stk);
 void				populate_stack(t_input *store, t_dll *lst);
+void				sorting_radix_sort(t_input *store, t_dll *stk_a,
+						t_dll *stk_b, int disp_op);
 #endif

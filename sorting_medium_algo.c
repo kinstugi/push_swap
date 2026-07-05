@@ -11,3 +11,12 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sorting_chunk_sort(t_input *store, t_dll *stk_a, t_dll *stk_b,
+		int disp_op)
+{
+	(void)store;
+	(void)stk_b;
+	(void)stk_a;
+	(void)disp_op;
+}
