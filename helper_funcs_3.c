@@ -12,33 +12,37 @@
 
 #include "push_swap.h"
 
-void	px(t_dll *from, t_dll *to)
+int	px(t_dll *from, t_dll *to)
 {
 	t_node	*nd;
 
 	nd = lst_pop_front(from);
 	if (!nd)
-		return ;
+		return (0);
 	lst_add_front(to, nd);
+	return (1);
 }
 
-void	rx(t_dll *stk)
+int	rx(t_dll *stk)
 {
 	lst_rotate(stk, 1);
+	return (1);
 }
 
-void	rrx(t_dll *stk)
+int	rrx(t_dll *stk)
 {
 	lst_rotate(stk, -1);
+	return (1);
 }
 
-void	sx(t_dll *stk)
+int	sx(t_dll *stk)
 {
 	int	tmp;
 
 	if (stk->len < 2)
-		return ;
+		return (1);
 	tmp = stk->head->val;
 	stk->head->val = stk->head->next->val;
 	stk->head->next->val = tmp;
+	return (1);
 }
