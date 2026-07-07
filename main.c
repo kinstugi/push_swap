@@ -64,7 +64,10 @@ void	init_variables(t_input *store, t_dll *stack_a, t_dll *stack_b)
 void	run_push_swap(t_input *store, t_dll *stk_a, t_dll *stk_b)
 {
 	populate_stack(store, stk_a);
-	if (stk_a->len < 4)
+	if (store->disordedness < 0.001)
+	{
+	}
+	else if (stk_a->len < 4)
 		sorting_manual_sort(store, stk_a, stk_b, 1);
 	else
 		sorting_radix_sort(store, stk_a, stk_b, 1);
