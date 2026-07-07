@@ -16,6 +16,14 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+typedef struct s_manual_arg
+{
+	int				a;
+	int				b;
+	int				c;
+	int				disp;
+}					t_marg;
+
 typedef struct s_user_input
 {
 	int				selected_mode;
@@ -41,14 +49,14 @@ typedef struct s_dl_list
 	t_node			*tail;
 }					t_dll;
 
-int					ft_strcmp(const char *s1, const char *s2);
+int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
 int					has_duplicates(int *arr, int cnt);
 double				compute_disorder(int *arr, int cnt);
 void				set_ranks(t_input *store);
-int					ft_putstr(char *str);
-int					ft_strlen(char *str);
+int					ft_putstr(const char *str);
+size_t				ft_strlen(const char *str);
 int					lst_add_front(t_dll *lst, t_node *new_node);
 t_node				*lst_pop_front(t_dll *lst);
 void				lst_rotate(t_dll *lst, int dxn);
@@ -58,8 +66,12 @@ int					px(t_dll *from, t_dll *to);
 int					rx(t_dll *stk);
 int					rrx(t_dll *stk);
 int					sx(t_dll *stk);
+void				perform_rotations(t_dll *stk, int cnt, int dxn,
+						const char *op);
 void				populate_stack(t_input *store, t_dll *lst);
 int					rec_op(t_input *store, const char *op);
+void				sorting_manual_sort(t_input *store, t_dll *stk_a,
+						t_dll *stk_b, int disp_op);
 void				sorting_radix_sort(t_input *store, t_dll *stk_a,
 						t_dll *stk_b, int disp_op);
 #endif

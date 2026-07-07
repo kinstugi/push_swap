@@ -42,27 +42,27 @@ static void	helper_method(t_input *store, t_dll *stk_a, t_dll *stk_b, int disp)
 
 int	rec_op(t_input *store, const char *op)
 {
-	if (ft_strcmp(op, "pa") == 0)
+	if (ft_strncmp(op, "pa", 2) == 0)
 		store->ops[0]++;
-	else if (ft_strcmp(op, "pb") == 0)
+	else if (ft_strncmp(op, "pb", 2) == 0)
 		store->ops[1]++;
-	else if (ft_strcmp(op, "ra") == 0)
+	else if (ft_strncmp(op, "ra", 2) == 0)
 		store->ops[2]++;
-	else if (ft_strcmp(op, "rb") == 0)
+	else if (ft_strncmp(op, "rb", 2) == 0)
 		store->ops[3]++;
-	else if (ft_strcmp(op, "rr") == 0)
+	else if (ft_strncmp(op, "rr", 2) == 0)
 		store->ops[4]++;
-	else if (ft_strcmp(op, "rra") == 0)
+	else if (ft_strncmp(op, "rra", 3) == 0)
 		store->ops[5]++;
-	else if (ft_strcmp(op, "rrb") == 0)
+	else if (ft_strncmp(op, "rrb", 3) == 0)
 		store->ops[6]++;
-	else if (ft_strcmp(op, "rrr") == 0)
+	else if (ft_strncmp(op, "rrr", 3) == 0)
 		store->ops[7]++;
-	else if (ft_strcmp(op, "sa") == 0)
+	else if (ft_strncmp(op, "sa", 2) == 0)
 		store->ops[8]++;
-	else if (ft_strcmp(op, "sb") == 0)
+	else if (ft_strncmp(op, "sb", 2) == 0)
 		store->ops[9]++;
-	else if (ft_strcmp(op, "ss") == 0)
+	else if (ft_strncmp(op, "ss", 2) == 0)
 		store->ops[10]++;
 	return (1);
 }

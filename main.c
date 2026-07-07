@@ -21,19 +21,20 @@ int	process_user_input(t_input *store, int ac, char **av)
 	{
 		if (av[i][0] == '-' && av[i][1] == '-')
 		{
-			if (ft_strcmp("simple", av[i] + 2) == 0)
+			if (ft_strncmp("simple", av[i] + 2, 7) == 0)
 				store->selected_mode = 1;
-			else if (ft_strcmp("medium", av[i] + 2) == 0)
+			else if (ft_strncmp("medium", av[i] + 2, 6) == 0)
 				store->selected_mode = 2;
-			else if (ft_strcmp("complex", av[i] + 2) == 0)
+			else if (ft_strncmp("complex", av[i] + 2, 7) == 0)
 				store->selected_mode = 3;
-			else if (ft_strcmp("bench", av[i] + 2) == 0)
+			else if (ft_strncmp("bench", av[i] + 2, 5) == 0)
 				store->bench_mode = 1;
 		}
 		else
 		{
 			store->arr[store->num_cnt++] = ft_atoi(av[i]);
-			if (ft_strcmp(av[i], ft_itoa(store->arr[store->num_cnt - 1])))
+			if (ft_strncmp(av[i], ft_itoa(store->arr[store->num_cnt - 1]),
+					ft_strlen(av[i])))
 				return (0);
 		}
 	}
@@ -63,7 +64,10 @@ void	init_variables(t_input *store, t_dll *stack_a, t_dll *stack_b)
 void	run_push_swap(t_input *store, t_dll *stk_a, t_dll *stk_b)
 {
 	populate_stack(store, stk_a);
-	sorting_radix_sort(store, stk_a, stk_b, 1);
+	if (stk_a->len < 4)
+		sorting_manual_sort(store, stk_a, stk_b, 1);
+	else
+		sorting_radix_sort(store, stk_a, stk_b, 1);
 	lst_clear(stk_a);
 	lst_clear(stk_b);
 }

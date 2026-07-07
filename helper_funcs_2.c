@@ -88,7 +88,7 @@ void	set_ranks(t_input *store)
 		store->arr[i] = tmp_arr_2[i];
 }
 
-int	ft_putstr(char *str)
+int	ft_putstr(const char *str)
 {
 	int	len;
 

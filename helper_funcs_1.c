@@ -26,9 +26,9 @@ void	ft_rev_str(char *str, int l, int r)
 	}
 }
 
-int	ft_strcmp(const char *s1, const char *s2)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	while (*s1 && (*s1 == *s2))
+	while (n-- && *s1 && (*s1 == *s2))
 	{
 		s1++;
 		s2++;
@@ -83,9 +83,9 @@ char	*ft_itoa(int n)
 	return (buffer);
 }
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])

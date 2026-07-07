@@ -58,3 +58,16 @@ double	compute_disorder(int *arr, int cnt)
 	ret = mistake / (ret);
 	return (ret);
 }
+
+void	perform_rotations(t_dll *stk, int cnt, int dxn, const char *op)
+{
+	while (cnt--)
+	{
+		if (dxn & (1 << 1))
+			rx(stk);
+		else
+			rrx(stk);
+		if (dxn & (1 << 0))
+			ft_putstr(op);
+	}
+}
