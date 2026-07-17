@@ -20,10 +20,8 @@ static void	sorting_manual_sort_2(t_input *store, t_dll *stk_a, t_dll *stk_b,
 		return ;
 	if (stk_a->head->val > stk_a->head->next->val)
 	{
-		rec_op(store, "sa");
+		rec_op(store, "sa\n", disp);
 		sx(stk_a);
-		if (disp)
-			ft_putstr("sa\n");
 	}
 }
 
@@ -31,28 +29,22 @@ static void	helper(t_input *store, t_marg *args)
 {
 	if (args->a > args->b && args->c > args->a)
 	{
-		rec_op(store, "sa");
+		rec_op(store, "sa\n", args->disp);
 		if (args->disp)
 			ft_putstr("sa\n");
 	}
 	else if (args->a < args->b && args->c < args->a)
 	{
-		rec_op(store, "rra");
-		if (args->disp)
-			ft_putstr("rra\n");
+		rec_op(store, "rra\n", args->disp);
 	}
 	else if (args->c > args->b && args->c < args->a)
 	{
-		rec_op(store, "ra");
-		if (args->disp)
-			ft_putstr("ra\n");
+		rec_op(store, "ra", args->disp);
 	}
 	else if (args->c < args->b && args->b < args->a)
 	{
-		rec_op(store, "ra");
-		rec_op(store, "sa");
-		if (args->disp)
-			ft_putstr("ra\nsa\n");
+		rec_op(store, "ra\n", args->disp);
+		rec_op(store, "sa\n", args->disp);
 	}
 }
 
@@ -70,10 +62,8 @@ static void	sorting_manual_sort_3(t_input *store, t_dll *stk_a, t_dll *stk_b,
 	args.disp = disp;
 	if (args.a < args.c && args.b > args.c)
 	{
-		rec_op(store, "rra");
-		rec_op(store, "sa");
-		if (disp)
-			ft_putstr("rra\nsa\n");
+		rec_op(store, "rra\n", disp);
+		rec_op(store, "sa\n", disp);
 	}
 	else
 		helper(store, &args);

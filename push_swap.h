@@ -12,6 +12,7 @@
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# define SHOW_OP 1
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -69,8 +70,12 @@ int					sx(t_dll *stk);
 void				perform_rotations(t_dll *stk, int cnt, int dxn,
 						const char *op);
 void				populate_stack(t_input *store, t_dll *lst);
-int					rec_op(t_input *store, const char *op);
+int					rec_op(t_input *store, const char *op, int disp);
 void				sorting_manual_sort(t_input *store, t_dll *stk_a,
+						t_dll *stk_b, int disp_op);
+void				sorting_turkish_sort(t_input *store, t_dll *stk_a,
+						t_dll *stk_b, int disp_op);
+void				sorting_chunk_sort(t_input *store, t_dll *stk_a,
 						t_dll *stk_b, int disp_op);
 void				sorting_radix_sort(t_input *store, t_dll *stk_a,
 						t_dll *stk_b, int disp_op);
