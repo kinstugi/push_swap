@@ -59,15 +59,15 @@ double	compute_disorder(int *arr, int cnt)
 	return (ret);
 }
 
-void	perform_rotations(t_dll *stk, int cnt, int dxn, const char *op)
+void	perform_rotations(t_dll *stk, int cnt, int disp, const char *op)
 {
 	while (cnt--)
 	{
-		if (dxn & (1 << 1))
+		if (ft_strncmp(op, "ra", 2) == 0 || ft_strncmp(op, "rb", 2) == 0)
 			rx(stk);
-		else
+		else if (ft_strncmp(op, "rra", 3) == 0 || ft_strncmp(op, "rra", 3) == 0)
 			rrx(stk);
-		if (dxn & (1 << 0))
+		if (disp)
 			ft_putstr(op);
 	}
 }
