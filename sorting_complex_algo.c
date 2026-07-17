@@ -27,20 +27,16 @@ static void	helper_method(t_input *store, t_dll *stk_a, t_dll *stk_b, int disp)
 	if (!(disp & (1 << 0)))
 	{
 		px(stk_a, stk_b);
-		rec_op(store, "pb");
-		if (disp & (1 << 1))
-			ft_putstr("pb\n");
+		rec_op(store, "pb\n", disp & (1 << 1));
 	}
 	else
 	{
 		rx(stk_a);
-		rec_op(store, "ra");
-		if (disp & (1 << 1))
-			ft_putstr("ra\n");
+		rec_op(store, "ra\n", disp & (1 << 1));
 	}
 }
 
-int	rec_op(t_input *store, const char *op)
+int	rec_op(t_input *store, const char *op, int disp)
 {
 	if (ft_strncmp(op, "pa", 2) == 0)
 		store->ops[0]++;
@@ -64,6 +60,8 @@ int	rec_op(t_input *store, const char *op)
 		store->ops[9]++;
 	else if (ft_strncmp(op, "ss", 2) == 0)
 		store->ops[10]++;
+	if (disp)
+		ft_putstr(op);
 	return (1);
 }
 
@@ -88,9 +86,7 @@ void	sorting_radix_sort(t_input *store, t_dll *stk_a, t_dll *stk_b,
 		while (stk_b->len)
 		{
 			px(stk_b, stk_a);
-			rec_op(store, "pa");
-			if (disp_op)
-				ft_putstr("pa\n");
+			rec_op(store, "pa\n", disp_op);
 		}
 	}
 }
