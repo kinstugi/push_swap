@@ -30,8 +30,6 @@ static void	helper(t_input *store, t_marg *args)
 	if (args->a > args->b && args->c > args->a)
 	{
 		rec_op(store, "sa\n", args->disp);
-		if (args->disp)
-			ft_putstr("sa\n");
 	}
 	else if (args->a < args->b && args->c < args->a)
 	{
@@ -39,7 +37,7 @@ static void	helper(t_input *store, t_marg *args)
 	}
 	else if (args->c > args->b && args->c < args->a)
 	{
-		rec_op(store, "ra", args->disp);
+		rec_op(store, "ra\n", args->disp);
 	}
 	else if (args->c < args->b && args->b < args->a)
 	{
