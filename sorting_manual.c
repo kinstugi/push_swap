@@ -67,11 +67,45 @@ static void	sorting_manual_sort_3(t_input *store, t_dll *stk_a, t_dll *stk_b,
 		helper(store, &args);
 }
 
+int	find_target(t_dll *stk, int target)
+{
+	int		i;
+	t_node	*trav;
+
+	i = 0;
+	trav = stk->head;
+	while (i < stk->len)
+	{
+		if (trav->val == target)
+			return (i);
+		trav = trav->next;
+		i++;
+	}
+	return (-1);
+}
+
 void	sorting_manual_sort(t_input *store, t_dll *stk_a, t_dll *stk_b,
 		int disp_op)
 {
+	int	mn;
+	int	pos;
+
 	if (stk_a->len == 2)
 		sorting_manual_sort_2(store, stk_a, stk_b, disp_op);
 	else if (stk_a->len == 3)
 		sorting_manual_sort_3(store, stk_a, stk_b, disp_op);
+	mn = 0;
+	while (stk_a->len > 3)
+	{
+		pos = find_target(stk_a, mn++);
+		if (pos < stk_a->len - pos)
+			perform_rotations(stk_a, pos, SHOW_OP, "ra\n");
+		else
+			perform_rotations(stk_a, stk_a->len - pos, SHOW_OP, "rra\n");
+		px(stk_a, stk_b);
+		rec_op(store, "pb\n", SHOW_OP);
+	}
+	sorting_manual_sort_3(store, stk_a, stk_b, SHOW_OP);
+	rec_op(store, "pa\n", SHOW_OP);
+	rec_op(store, "pa\n", SHOW_OP);
 }

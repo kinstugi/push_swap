@@ -28,12 +28,16 @@ void	ft_rev_str(char *str, int l, int r)
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	while (n-- && *s1 && (*s1 == *s2))
+	size_t	i;
+
+	i = 0;
+	while (n--)
 	{
-		s1++;
-		s2++;
+		if (s1[i] == 0 || s2[i] == 0 || s1[i] - s2[i] != 0)
+			return (s1[i] - s2[i]);
+		i++;
 	}
-	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+	return (0);
 }
 
 int	ft_atoi(const char *str)
